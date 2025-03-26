@@ -2598,6 +2598,56 @@ E. Template Specific Elements
   height: 100% !important;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+.grid-item {
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.grid-item img {
+  transition: transform 0.3s ease;
+}
+.grid-item img:hover {
+  transform: scale(1.1);
+}
+.grid-item .hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.grid-item:hover .hover-text {
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+}
+@media (max-width: 450px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 @media (min-width: 36rem) and (max-width: 47.9375rem) {
   html {
     font-size: 85%;
